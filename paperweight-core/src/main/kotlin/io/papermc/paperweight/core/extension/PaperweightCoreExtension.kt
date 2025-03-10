@@ -32,6 +32,7 @@ import org.gradle.api.model.ObjectFactory
 import org.gradle.api.provider.ListProperty
 import org.gradle.api.provider.Property
 import org.gradle.kotlin.dsl.*
+import java.net.URI
 
 abstract class PaperweightCoreExtension @Inject constructor(objects: ObjectFactory, project: Project) {
     val minecraftVersion: Property<String> = objects.property()
@@ -41,6 +42,9 @@ abstract class PaperweightCoreExtension @Inject constructor(objects: ObjectFacto
     val bundlerJarName: Property<String> = objects.property<String>().convention("paper")
 
     val macheRepo: Property<String> = objects.property<String>().convention(PAPER_MAVEN_REPO_URL)
+
+    val macheRepoUsername: Property<String> = objects.property<String>().convention("admin")
+    val macheRepoPassword: Property<String> = objects.property<String>().convention("azxaewef345t")
 
     val macheOldPath: DirectoryProperty = objects.directoryProperty()
     val gitFilePatches: Property<Boolean> = objects.property<Boolean>().convention(false)

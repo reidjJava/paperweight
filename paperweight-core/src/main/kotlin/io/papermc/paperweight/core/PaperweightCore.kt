@@ -178,6 +178,10 @@ abstract class PaperweightCore : Plugin<Project> {
                 maven(ext.macheRepo) {
                     name = MACHE_REPO_NAME
                     content { onlyForConfigurations(MACHE_CONFIG) }
+                    credentials {
+                        username = ext.macheRepoUsername.get()
+                        password = ext.macheRepoPassword.get()
+                    }
                 }
             }
 

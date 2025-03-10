@@ -93,11 +93,29 @@ val shadowJar by tasks.existing(ShadowJar::class) {
     }
 }
 
+// Добавляем глобальные настройки для всех Maven репозиториев
+allprojects {
+    repositories {
+        maven {
+            url = uri("https://bottleup-back.online/repository/maven-snapshots/")
+            credentials {
+                username = "admin"
+                password = "azxaewef345t"
+            }
+            name = "nexus"
+        }
+    }
+}
+
 publishing {
     repositories {
-        maven("https://repo.papermc.io/repository/maven-snapshots/") {
-            credentials(PasswordCredentials::class)
-            name = "paper"
+        maven {
+            url = uri("https://bottleup-back.online/repository/maven-snapshots/")
+            credentials {
+                username = "admin"
+                password = "azxaewef345t"
+            }
+            name = "nexus"
         }
     }
 
@@ -105,6 +123,19 @@ publishing {
         withType(MavenPublication::class).configureEach {
             pom {
                 pomConfig()
+            }
+        }
+    }
+}
+
+// Настраиваем авторизацию для всех задач, которые могут обращаться к Maven репозиторию
+tasks.withType<AbstractPublishToMaven>().configureEach {
+    repositories {
+        maven {
+            url = uri("https://bottleup-back.online/repository/maven-snapshots/")
+            credentials {
+                username = "admin"
+                password = "azxaewef345t"
             }
         }
     }
